@@ -1,0 +1,22 @@
+﻿<table class="table">
+    <tr>
+        <td>Nombre:</td>
+        <td>@ViewBag.producto.Nombre</td>
+    </tr>
+    <tr>
+        <td>Precio:</td>
+        <td>@ViewBag.producto.Precio</td>
+    </tr>
+    <tr>
+        <td>Foto:</td>
+        <td><img src="~/imagenes/@ViewBag.producto.Foto" height="90px"></td>
+    </tr>
+    <tr>
+        <td>Cantidad:</td>
+        <td>@ViewBag.producto.Cantidad</td>
+    </tr>
+    <tr>
+        <td>TOTAL:</td>
+        <td>@(ViewBag.producto.Precio*ViewBag.producto.Cantidad)</td>
+    </tr>
+</table>

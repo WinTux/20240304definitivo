@@ -1,0 +1,21 @@
+﻿<h3>Productos comprados</h3>
+<table class="table">
+    <tr>
+        <td>Nombre</td>
+        <td>Precio</td>
+        <td>Foto</td>
+        <td>Cantidad</td>
+        <td>Total</td>
+    </tr>
+    @foreach (Producto pro in ViewBag.productos)
+    {
+       <tr>
+           <td>@pro.Nombre</td>
+            <td>@pro.Precio</td>
+            <td><img src="~/imagenes/@pro.Foto" height="70px"></td>
+            <td>@pro.Cantidad</td>
+            <td>@(pro.Precio* pro.Cantidad)</td>
+       </tr> 
+    
+    }
+</table>
