@@ -5,6 +5,11 @@ namespace EjemplosASP.Controllers
 {
     public class EjemplosController : Controller
     {
+        private IConfiguration configuration;
+
+        public EjemplosController(IConfiguration configuration) {
+            this.configuration = configuration;
+        }
         public IActionResult Index()
         {
             ViewBag.estatura = 171;
@@ -57,6 +62,37 @@ namespace EjemplosASP.Controllers
             };
             ViewBag.productos = prods;
             return View();
+        }
+
+        public IActionResult EjemploSettings()
+        {
+            ViewBag.valor1 = configuration["Texto"];
+            ViewBag.valor2 = configuration["Terminado"];
+            ViewBag.valor3 = configuration["MisConfiguraciones:configuracion3"];
+            ViewBag.valor4 = configuration["Logging:LogLevel:Default"];
+
+            return View("PaginaAppSetting");
+        }
+
+        public IActionResult EjemploQueryString1([FromQuery(Name = "usuario")] string usuario) {
+            ViewBag.usu = usuario;
+            return View("EjemploQS1");
+        }
+
+        public IActionResult EjemploQueryString2([FromQuery(Name = "usuario")] string usuario, [FromQuery(Name = "password")] int Password)
+        {
+            ViewBag.usu = usuario;
+            ViewBag.pwd = Password;
+            return View("EjemploQS2");
+        }
+
+        public IActionResult EjemploQueryString3()
+        {
+            string usuario = HttpContext.Request.Query["usuario"].ToString();
+            int password = int.Parse( HttpContext.Request.Query["password"].ToString());
+            ViewBag.usu = usuario;
+            ViewBag.pwd = password;
+            return View("EjemploQS2");
         }
     }
 }
