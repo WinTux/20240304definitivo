@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EjemplosASP.Controllers
 {
+    [Route("Ejemplos")]
     public class EjemplosController : Controller
     {
         private IConfiguration configuration;
@@ -10,6 +11,7 @@ namespace EjemplosASP.Controllers
         public EjemplosController(IConfiguration configuration) {
             this.configuration = configuration;
         }
+        [Route("Index")]
         public IActionResult Index()
         {
             ViewBag.estatura = 171;
@@ -93,6 +95,19 @@ namespace EjemplosASP.Controllers
             ViewBag.usu = usuario;
             ViewBag.pwd = password;
             return View("EjemploQS2");
+        }
+        [Route("param/{codigo}")]
+        public IActionResult EjemploParametrosRoute(int codigo)
+        {
+            ViewBag.codigo = codigo;
+            return View("EjemploParamRoute");
+        }
+        [Route("param2/{codigo}/{categoria}")]
+        public IActionResult EjemploParametrosRoute2(int codigo, int categoria)
+        {
+            ViewBag.codigo = codigo;
+            ViewBag.categoria = categoria;
+            return View("EjemploParamRoute2");
         }
     }
 }

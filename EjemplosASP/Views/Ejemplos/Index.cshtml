@@ -9,6 +9,10 @@ Peso: @ViewBag.peso
 
 <h3>Para el ejemplo de uso de Query String</h3>
 <a asp-controller="Ejemplos" asp-action="EjemploQueryString1" asp-route-usuario="Pepe">Clic para enviar un parametro</a><br >
-<a asp-controller="Ejemplos" asp-action="EjemploQueryString2" asp-route-usuario="Ana" asp-route-password="123456">Clic para enviar dos parametros</a>
+<a asp-controller="Ejemplos" asp-action="EjemploQueryString2" asp-route-usuario="Ana" asp-route-password="123456">Clic para enviar dos parametros</a><br>
 <a asp-controller="Ejemplos" asp-action="EjemploQueryString3" asp-route-usuario="Ana" asp-route-password="123456">Clic para enviar dos parametros (con HttpContext)</a>
 <br>
+
+<a asp-controller="Ejemplos" asp-action="param" asp-route-codigo="123">Ir a ejemplo de parametro en Route</a>
+<br>
+<a asp-controller="Ejemplos" asp-action="param" asp-route-codigo="123" asp-route-categoria="777">Ir a ejemplo de parametros en Route</a>
