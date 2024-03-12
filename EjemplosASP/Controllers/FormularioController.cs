@@ -29,5 +29,15 @@ namespace EjemplosASP.Controllers
 
             return View("Index",cuentaViewModel);
         }
+        [HttpPost]
+        public IActionResult Guardar(CuentaViewModel cuentaViewModel, List<Lenguaje> lenguajes) {
+            cuentaViewModel.cuenta.Lenguajes = new List<string>();
+            foreach (Lenguaje len in lenguajes) {
+                if (len.estaTickeado)
+                    cuentaViewModel.cuenta.Lenguajes.Add(len.id);
+            }
+            ViewBag.cuenta = cuentaViewModel.cuenta;
+            return View("Registrado");
+        }
     }
 }

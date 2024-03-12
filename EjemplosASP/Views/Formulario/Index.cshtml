@@ -1,0 +1,56 @@
+﻿@model EjemplosASP.Models.CuentaViewModel
+
+<h3>Registro de desarrollador</h3>
+<form asp-controller="Formulario" asp-action="Guardar" method="post">
+    <table class="table">
+        <tr>
+            <td>Usuario:</td>
+            <td><input type="text" asp-for="cuenta.Nombre"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" asp-for="cuenta.Password"></td>
+        </tr>
+        <tr>
+            <td>Descripcion:</td>
+            <td><textarea cols="25" rows="5" asp-for="cuenta.Descripcion"></textarea></td>
+        </tr>
+        <tr>
+            <td>Disponible:</td>
+            <td><input type="checkbox" asp-for="cuenta.Disponible"></td>
+        </tr>
+        <tr>
+            <td valign="top">Genero:</td>
+            <td><input type="radio" value="M" asp-for="cuenta.genero"> Masculino
+                <br>
+                <input type="radio" value="F" asp-for="cuenta.genero"> Femenino
+            </td>
+        </tr>
+        <tr>
+            <td>Lenguajes</td>
+            <td>
+                @for (var i = 0; i < Model.lengueajes.Count; i++)
+                {
+                    <input type="hidden" asp-for="@Model.lengueajes[i].id">
+                    <input type="hidden" asp-for="@Model.lengueajes[i].nombre">
+                    <input type="checkbox" asp-for="@Model.lengueajes[i].estaTickeado">
+                    <label asp-for="@Model.lengueajes[i].id">@Model.lengueajes[i].nombre</label><br>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Cargos</td>
+            <td>
+                <select asp-for="cuenta.cargo" asp-items="@Model.cargos"></select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="hidden" asp-for="cuenta.Id">
+            </td>
+            <td>
+                <input class="btn btn-success" type="submit" value="Registrar">
+            </td>
+        </tr>
+    </table>    
+</form>

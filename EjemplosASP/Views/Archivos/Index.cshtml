@@ -1,0 +1,39 @@
+﻿@model EjemplosASP.Models.Producto
+<form asp-controller="Archivos" asp-action="Guardar" method="post" enctype="multipart/form-data">
+    <table class="table">
+        <tr>
+            <td>Id</td>
+            <td>
+                <input type="text" asp-for="Id">
+            </td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td>
+                <input type="text" asp-for="Nombre">
+            </td>
+        </tr>
+        <tr>
+            <td>Precio</td>
+            <td>
+                <input type="text" asp-for="Precio">
+            </td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td>
+                <input type="number" asp-for="Cantidad">
+            </td>
+        </tr>
+        <tr>
+            <td>Foto</td>
+            <td>
+                <input type="file" name="foto">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="btn btn-success" type="submit" value="Guardar"></td>
+        </tr>
+    </table>
+</form>
