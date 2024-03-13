@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using EjemplosASP.Auxiliares;
+
+<h3>Ejemplos de sesion</h3>
+Edad: @Context.Session.GetInt32("edad")
+<br>
+Usuario: @Context.Session.GetString("usuario")
+<br>
+
+<h2>Un objeto</h2>
+@{
+    Producto p = ConversorSesion.GetObjetoDesdeJson<Producto>(Context.Session, "prod");
+}
+
+ID: @p.Id <br>
+Nombre: @p.Nombre<br />
+Precio: @p.Precio<br />
+Cantidad: @p.Cantidad<br>
+<img src="~/imagenes/@p.Foto" height="100px">
