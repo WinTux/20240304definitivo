@@ -18,6 +18,8 @@ namespace EjemplosASP.Controllers
         [HttpPost]
         public IActionResult Guardar(Producto prod, IFormFile foto)
         {
+            if(!ModelState.IsValid)
+                return View("Index");
             if (foto == null || foto.Length == 0)
                 return Content("Archivo nulo o corrupto");
             else

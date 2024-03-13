@@ -6,11 +6,17 @@
             <td>
                 <input type="text" asp-for="Id">
             </td>
+            <td>
+                <span asp-validation-for="Id"></span>
+            </td>
         </tr>
         <tr>
             <td>Nombre</td>
             <td>
                 <input type="text" asp-for="Nombre">
+            </td>
+            <td>
+                <span asp-validation-for="Nombre"></span>
             </td>
         </tr>
         <tr>
@@ -18,11 +24,17 @@
             <td>
                 <input type="text" asp-for="Precio">
             </td>
+            <td>
+                <span asp-validation-for="Precio"></span>
+            </td>
         </tr>
         <tr>
             <td>Cantidad</td>
             <td>
                 <input type="number" asp-for="Cantidad">
+            </td>
+            <td>
+                <span asp-validation-for="Cantidad"></span>
             </td>
         </tr>
         <tr>
