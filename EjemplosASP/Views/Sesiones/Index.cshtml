@@ -17,3 +17,25 @@ Nombre: @p.Nombre<br />
 Precio: @p.Precio<br />
 Cantidad: @p.Cantidad<br>
 <img src="~/imagenes/@p.Foto" height="100px">
+
+@{
+    List<Producto> ps = ConversorSesion.GetObjetoDesdeJson<List<Producto>>(Context.Session, "prods");
+}
+<div class="container-lg">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            @foreach (Producto pro in ps)
+            {
+                <div>
+                    ID: @pro.Id <br />
+                    Nombre: @pro.Nombre <br />
+                    Precio: @pro.Precio<br />
+                    Cantidad: @pro.Cantidad<br />
+                    <img src="~/imagenes/@pro.Foto" width="100px">
+                </div>    
+            
+            }
+        </div>
+    </div>
+</div>
