@@ -1,0 +1,23 @@
+﻿<h3>Productos comestibles - Supermercado Pepe</h3>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Nombre</td>
+        <td>Precio</td>
+        <td>Cantidad</td>
+        <td>Foto</td>
+        <td>Acciones</td>
+    </tr>
+    @foreach (var prod in ViewBag.productos)
+    {
+        <tr>
+            <td>@prod.Id</td>
+            <td>@prod.Nombre</td>
+            <td>@prod.Precio</td>
+            <td>@prod.Cantidad</td>
+            <td><img src="~/imagenes/@prod.Foto" width="100px"></td>
+            <td><a asp-controller="Carrito" asp-action="agregar" asp-route-id="@prod.Id">Agregar al carrito</a></td>
+        </tr>    
+    
+    }
+</table>
