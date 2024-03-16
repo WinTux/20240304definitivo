@@ -2,6 +2,8 @@
 {
     public class ProductoModelo
     {
+        List<Producto> productos;
+        /*
         List<Producto> productos = new List<Producto>() {
                 new Producto {
                 Id = 1,
@@ -24,8 +26,12 @@
                 Cantidad = 48,
                 Foto = "sardina.png"
             }
-            };
-        public List<Producto> getTodos() {
+            };*/
+    public ProductoModelo(SuperMercadoContext context)
+    {
+            productos = context.Productos.ToList();
+    }
+    public List<Producto> getTodos() {
             return productos;
         }
         public Producto getById(int id) { 

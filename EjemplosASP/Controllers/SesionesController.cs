@@ -37,7 +37,7 @@ namespace EjemplosASP.Controllers
                 new Producto {
                 Id = 3,
                 Nombre = "Sardina",
-                Precio = 10.5,
+                Precio = (decimal)10.5,
                 Cantidad = 48,
                 Foto = "sardina.png"
             }

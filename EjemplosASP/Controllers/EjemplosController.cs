@@ -27,7 +27,7 @@ namespace EjemplosASP.Controllers
             Producto prod = new Producto { 
                 Id = 1,
                 Nombre = "Queso",
-                Precio = 20.5,
+                Precio = (decimal)20.5,
                 Foto = "queso.jpg",
                 Cantidad = 3
             };
@@ -41,7 +41,7 @@ namespace EjemplosASP.Controllers
             {
                 Id = 1,
                 Nombre = "Queso",
-                Precio = 20.5,
+                Precio = (decimal) 20.5,
                 Foto = "queso.jpg",
                 Cantidad = 1
             },
@@ -49,7 +49,7 @@ namespace EjemplosASP.Controllers
             {
                 Id = 2,
                 Nombre = "Sardina",
-                Precio = 15.7,
+                Precio = (decimal) 15.7,
                 Foto = "sardina.png",
                 Cantidad = 2
             },
@@ -57,7 +57,7 @@ namespace EjemplosASP.Controllers
             {
                 Id = 3,
                 Nombre = "Helado",
-                Precio = 22.0,
+                Precio = (decimal) 22.0,
                 Foto = "helado1.jfif",
                 Cantidad = 5
             }

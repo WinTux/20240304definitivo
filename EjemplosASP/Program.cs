@@ -1,3 +1,6 @@
+using EjemplosASP.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace EjemplosASP
 {
     public class Program
@@ -9,6 +12,8 @@ namespace EjemplosASP
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession();
+            string cadenaCon = builder.Configuration.GetConnectionString("MiConexion");
+            builder.Services.AddDbContext<SuperMercadoContext>(op => op.UseLazyLoadingProxies().UseSqlServer(cadenaCon));
 
             var app = builder.Build();
 

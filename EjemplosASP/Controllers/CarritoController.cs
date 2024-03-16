@@ -6,6 +6,12 @@ namespace EjemplosASP.Controllers
 {
     public class CarritoController : Controller
     {
+        private SuperMercadoContext context;
+
+        public CarritoController(SuperMercadoContext context)
+        {
+            this.context = context;
+        }
         public IActionResult Index()
         {
             List<Item> carrito = ConversorSesion.GetObjetoDesdeJson<List<Item>>(HttpContext.Session, "carrito");
@@ -16,7 +22,7 @@ namespace EjemplosASP.Controllers
         [Route("agregar/{id}")]
         public IActionResult agregar(int id)
         {
-            ProductoModelo productoModelo = new ProductoModelo();
+            ProductoModelo productoModelo = new ProductoModelo(context);
             if (ConversorSesion.GetObjetoDesdeJson<List<Item>>(HttpContext.Session, "carrito") == null) { 
                 List<Item> carrito = new List<Item>();
                 carrito.Add(new Item
