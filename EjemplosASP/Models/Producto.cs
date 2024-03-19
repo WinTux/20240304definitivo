@@ -6,8 +6,7 @@ namespace EjemplosASP.Models
     [Table("Producto")]
     public class Producto
     {
-        [Required(ErrorMessage = "")]
-        [Key]
+        //[Key]
         public int Id { get; set; }
         [Required]
         [MinLength(4, ErrorMessage ="El nombre de producto debe ser de 4 letras o más")]
@@ -17,7 +16,7 @@ namespace EjemplosASP.Models
         [Column("Precio")]
         public decimal Precio { get; set; }
         [MaxLength(50)]
-        [Required]
+        //[Required]
         public string Foto { get; set; }
         [Range(0,240)]
         public int? Cantidad { get; set; }

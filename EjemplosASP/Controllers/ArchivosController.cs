@@ -7,19 +7,22 @@ namespace EjemplosASP.Controllers
     public class ArchivosController : Controller
     {
         private IWebHostEnvironment webHostEnvironment;
-
-        public ArchivosController(IWebHostEnvironment webHostEnvironment) {
+        private SuperMercadoContext db;
+        public ArchivosController(IWebHostEnvironment webHostEnvironment, SuperMercadoContext db)
+        {
             this.webHostEnvironment = webHostEnvironment;
+            this.db = db;
         }
         public IActionResult Index()
         {
             return View("Index", new Producto());
+            
         }
         [HttpPost]
         public IActionResult Guardar(Producto prod, IFormFile foto)
         {
-            if(!ModelState.IsValid)
-                return View("Index");
+            //if(!ModelState.IsValid)
+            //    return View("Index");
             if (foto == null || foto.Length == 0)
                 return Content("Archivo nulo o corrupto");
             else
@@ -28,6 +31,8 @@ namespace EjemplosASP.Controllers
                 var stream = new FileStream(ruta, FileMode.Create);
                 foto.CopyToAsync(stream);
                 prod.Foto = foto.FileName;
+                db.Productos.Add(prod);//db.Add(prod);
+                db.SaveChanges();
             }
             ViewBag.producto = prod;
             return View("Guardado");
