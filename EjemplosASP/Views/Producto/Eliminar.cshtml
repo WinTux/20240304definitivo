@@ -1,0 +1,17 @@
+﻿@model EjemplosASP.Models.Producto
+
+    
+<h3>Producto a ser eliminado</h3>
+<form asp-controller="Producto" asp-action="eliminar_p" method="post">
+    <table class="table">
+        <tr>
+            <td>ID</td>
+            <td><input type="number" asp-for="Id" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Eliminar"/></td>
+        </tr>
+    </table>
+
+</form>

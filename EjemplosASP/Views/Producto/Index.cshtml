@@ -16,7 +16,10 @@
             <td>@prod.Precio</td>
             <td>@prod.Cantidad</td>
             <td><img src="~/imagenes/@prod.Foto" width="100px"></td>
-            <td><a asp-controller="Carrito" asp-action="agregar" asp-route-id="@prod.Id">Agregar al carrito</a></td>
+            <td><a asp-controller="Carrito" asp-action="agregar" asp-route-id="@prod.Id">Agregar al carrito</a> <br />
+                <a asp-controller="Producto" asp-action="paraeditar" asp-route-id="@prod.Id">Editar producto</a><br />
+                <a asp-controller="Producto" asp-action="eliminar_p" asp-route-id="@prod.Id">Eliminar producto</a>
+            </td>
         </tr>    
     
     }
